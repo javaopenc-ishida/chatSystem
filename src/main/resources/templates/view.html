@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>チャットルーム</h1>
+	<form method="get" action="#" th:action="@{/complete}">
+		<p>名前：<input type="text" name="name1"></p>
+		<input type="submit" value="送信">
+	</form>
+	<form method="get" action="#" th:action="@{/complete}">
+		<p>コメント：<input type="text" name="name1"></p>
+		<input type="submit" value="送信">
+	</form>
+
+	<p th:each="res1 : ${dbList1}"></p>
+	<p th:text="${res1.id}">1</p>
+	<p th:text="${res1.name}">1</p>
+	<p th:text="${res1.comment}">1</p>
+
+</body>
+
+</html>
