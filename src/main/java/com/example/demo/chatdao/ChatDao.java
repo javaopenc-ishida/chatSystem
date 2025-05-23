@@ -23,7 +23,7 @@ public class ChatDao {
 	}
 
 	public List<EntChat> searchDb() {
-		String sql = "SELECT * FROM data";
+		String sql = "SELECT * FROM chat";
 		//データベースから取り出したデータをresultDB1に入れる
 		List<Map<String, Object>> resultDb1 = db.queryForList(sql);
 		//画面に表示しやすい形のList(resultDB2)を用意
@@ -35,6 +35,7 @@ public class ChatDao {
 			//id、nameのデータをentformdbに移す
 			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
+			entformdb.setComment((String) result1.get("comment"));
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
 		}

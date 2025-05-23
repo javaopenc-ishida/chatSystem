@@ -3,24 +3,27 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/chat.css}">
 	<title>Insert title here</title>
 </head>
 
 <body>
 	<h1>チャットルーム</h1>
-	<form method="get" action="#" th:action="@{/complete}">
-		<p>名前：<input type="text" name="name1"></p>
-		<input type="submit" value="送信">
+	<form method="get" action="#" th:action="@{/complete}" th:object="${chat}">
+		<p><input type="text" name="name1" placeholder="お名前" /> &ensp;:&ensp;<input type="text" name="comment1" placeholder="コメント:500文字まで。Enterキーでも投稿できます。" size="60" /> <input type="submit" value="投稿" />
+		</p>
 	</form>
-	<form method="get" action="#" th:action="@{/complete}">
-		<p>コメント：<input type="text" name="name1"></p>
-		<input type="submit" value="送信">
-	</form>
-
-	<p th:each="res1 : ${dbList1}"></p>
-	<p th:text="${res1.id}">1</p>
-	<p th:text="${res1.name}">1</p>
-	<p th:text="${res1.comment}">1</p>
+	<section class="section"></section>
+	<table>
+		<tr>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr th:each="res1 : ${dbList1}">
+			<td class="size" th:text="${res1.name}"></td>
+			<td th:text="${res1.comment}"></td>
+		</tr>
+	</table>
 
 </body>
 
